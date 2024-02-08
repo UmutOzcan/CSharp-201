@@ -1,6 +1,6 @@
 ﻿using Business.Abstract;
 using Entities.Concrete;
-using MernisServiceReference;
+using MernisForeignerServiceReference;
 
 namespace Business.Concrete
 {
@@ -13,7 +13,10 @@ namespace Business.Concrete
 
         public bool CheckPerson(Person person)
         {
-            throw new NotImplementedException();
+            KPSPublicYabanciDogrulaSoapClient client = new
+                (KPSPublicYabanciDogrulaSoapClient.EndpointConfiguration.KPSPublicYabanciDogrulaSoap);
+            return client.YabanciKimlikNoDogrulaAsync(new YabanciKimlikNoDogrulaRequest(new YabanciKimlikNoDogrulaRequestBody
+                (person.NationalIdentity, person.FirstName, person.LastName,null,null, person.DateOfBirth))).Result.Body.YabanciKimlikNoDogrulaResult;
         }
 
         public List<Person> GetAll()
