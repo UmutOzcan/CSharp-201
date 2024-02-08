@@ -12,7 +12,8 @@ public class PersonManager : IApplicantService
 
     public List<Person> GetAll()
     {
-        return [];
+        var persons = new List<Person>();
+        return persons;
     }
 
     public bool CheckPerson(Person person) // Web Service ile tc kontrolü

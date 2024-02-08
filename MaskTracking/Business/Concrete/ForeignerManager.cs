@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Entities.Concrete;
+using MernisServiceReference;
 
 namespace Business.Concrete
 {
@@ -17,7 +18,8 @@ namespace Business.Concrete
 
         public List<Person> GetAll()
         {
-            throw new NotImplementedException();
+            var list = new List<Person>();
+            return list;
         }
     }
 }
