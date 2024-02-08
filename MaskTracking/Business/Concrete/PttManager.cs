@@ -2,14 +2,9 @@
 using Entities.Concrete;
 namespace Business.Concrete;
 
-public class PttManager : ISupplierService
+public class PttManager(IApplicantService applicantService) : ISupplierService
 {
-    private IApplicantService _applicantService; // Bağımlılığı azaltmak için Dependency Injection kullanılır
-
-    public PttManager(IApplicantService applicantService) // DI için ctor da oluştuğu an çalışır
-    {
-        _applicantService = applicantService;
-    }
+    private readonly IApplicantService _applicantService = applicantService; // Bağımlılığı azaltmak için Dependency Injection kullanılır
 
     public void GiveMask(Person person)
     {

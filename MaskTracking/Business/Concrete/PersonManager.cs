@@ -7,7 +7,7 @@ public class PersonManager : IApplicantService
 {
     public void ApplyForMask(Person person)
     {
-
+        throw new NotImplementedException();
     }
 
     public List<Person> GetAll()
