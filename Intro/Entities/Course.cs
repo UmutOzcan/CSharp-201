@@ -1,4 +1,4 @@
-﻿namespace Intro.Entities;
+﻿namespace OOP.Entities;
 
 public class Course
 {

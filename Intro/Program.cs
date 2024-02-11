@@ -1,49 +1,60 @@
-﻿// See https://aka.ms/new-console-template for more information
-using Intro.Entities;
-using Intro.Business;
+﻿using OOP.Entities;
 
-Console.WriteLine("Hello, World!");
-
-string message = "Credits ";
-int term = 12;
-double amount = 10000;
-
-// variables -> camelCase
-bool isAuthenticated = false;
-Console.WriteLine(message + " term = " + term + " amount = " + amount);
-
-//condition
-if(isAuthenticated )
+IndividualCustomer customer1 = new()
 {
-    Console.WriteLine("Welcome!");
-}
-else
+    Id = 1,
+    NationalIdentity = "1234567890",
+    FirstName = "Ezel",
+    LastName = "Bayraktar",
+    CustomerNumber = "123456"
+};
+
+IndividualCustomer customer2 = new()
 {
-    Console.WriteLine("You must Log In!");
-}
+    Id = 2,
+    NationalIdentity = "1234567899",
+    FirstName = "Eyşan",
+    LastName = "Tezcan",
+    CustomerNumber = "456789"
+};
 
-Console.WriteLine("Code is done!");
+CoorporateCustomer customer3 = new()
+{
+    Id = 3,
+    Name = "Trendyol",
+    CustomerNumber = "987654",
+    TaxNumber = "1234567890",
+};
 
-string[] loans = { "Credit 1", "Credit 2", "Credit 3", "Credit 4" };
-// string[] loans2 = new string[6];
-// loans[0] = "Credit 1";
+CoorporateCustomer customer4 = new()
+{
+    Id = 4,
+    Name = "HepsiBurada",
+    CustomerNumber = "987650",
+    TaxNumber = "1234567891",
+};
 
+int number = 30;
+int number2 = 40;
+number = number2;
+Console.WriteLine(number);
 Console.WriteLine();
-// start ; condition ; increment
-for(int i = 0; i < loans.Length; i++)
-{
-    Console.WriteLine(loans[i]);
-}
 
+string[] cities = ["Ankara", "Istanbul", "Izmir"];
+string[] cities2 = ["Bursa", "Sakarya", "Kocaeli"];
+cities = cities2;
+Console.WriteLine(cities[0]);
 Console.WriteLine();
-//---------------------------------------------
 
-CourseManager courseManager = new();
-Course[] courses = courseManager.GetAll();
+// value-type -> int,bool,double..
+// reference-type -> array,class,interface..
 
-foreach(Course course in courses)
-{ 
-    Console.WriteLine(course.Name + " / " + course.Price); 
+BaseCustomer[] customers = [customer1, customer2, customer3, customer4];
+
+// Polymorphism
+foreach (var customer in customers)
+{
+    Console.WriteLine(customer.CustomerNumber);
 }
 
 Console.ReadKey();
