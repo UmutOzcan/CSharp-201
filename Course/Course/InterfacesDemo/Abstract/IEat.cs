@@ -1,0 +1,4 @@
+﻿interface IEat
+{
+    void Eat();
+}
