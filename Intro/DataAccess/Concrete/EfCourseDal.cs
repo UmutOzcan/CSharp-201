@@ -3,43 +3,43 @@ using OOP.Entities;
 
 namespace OOP.DataAccess.Concrete;
 
-// ADO.NET gibi implemente ettik
-public class CourseDal : ICourseDal
+// Ef gibi implemente ettik
+public class EfCourseDal : ICourseDal
 {
     private readonly List<Course> courses;
 
-    public CourseDal()
+    public EfCourseDal()
     {
         Course course1 = new()
         {
             Id = 1,
-            Name = "C#",
+            Name = "JavaScript",
             Description = ".Net 8.0",
-            Price = 99.99
+            Price = 109.99
         };
 
         Course course2 = new()
         {
             Id = 2,
-            Name = "Java",
-            Description = "Java 17",
-            Price = 89.99
+            Name = "Go",
+            Description = "Go 3",
+            Price = 29.99
         };
 
         Course course3 = new()
         {
             Id = 3,
-            Name = "Pyhton",
-            Description = "Pyhton 3.12",
-            Price = 79.99
+            Name = "Rust",
+            Description = "Rust 1.0",
+            Price = 39.99
         };
 
         courses = [course1, course2, course3];
     }
 
     public List<Course> GetCourses()
-    { 
-        return courses; 
+    {
+        return courses;
         // DB works
     }
 

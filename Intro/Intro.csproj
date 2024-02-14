@@ -7,4 +7,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="DataAccess\NewFolder\**" />
+    <EmbeddedResource Remove="DataAccess\NewFolder\**" />
+    <None Remove="DataAccess\NewFolder\**" />
+  </ItemGroup>
+
 </Project>

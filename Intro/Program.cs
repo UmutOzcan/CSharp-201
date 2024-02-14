@@ -1,4 +1,6 @@
-﻿using OOP.Entities;
+﻿using OOP.Business;
+using OOP.DataAccess.Concrete;
+using OOP.Entities;
 
 IndividualCustomer customer1 = new()
 {
@@ -56,5 +58,19 @@ foreach (var customer in customers)
 {
     Console.WriteLine(customer.CustomerNumber);
 }
+Console.WriteLine();
+
+// Ef - ADO.Net gibi farklı kullanımlarda sadece yöntem değiştirilir
+// Sadece bağımlılık değiştirerek kod yükünden kurtuluruz
+CourseManager courseManager = new(new EfCourseDal());
+//CourseManager courseManager = new(new CourseDal());
+
+List<Course> courses = courseManager.GetAll();
+
+for (int i = 0; i < courses.Count; i++)
+{
+    Console.WriteLine(courses[i].Name + " / " + courses[i].Price);
+}
+
 
 Console.ReadKey();
